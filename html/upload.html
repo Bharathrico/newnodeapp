@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="../css/upload.css">
+    <script src="https://kit.fontawesome.com/e48c27703a.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <title>Upload</title>
+</head>
+
+<body>
+    <form method="POST" action="/upload" enctype="multipart/form-data">
+        <div id="holder">
+            <div id="uploadholder">
+                <div id="title">Upload your model and screenshots</div>
+                <div id="uploads">
+                    <div>
+                        <div class="dragoff" id="dropzone">drag and drop files here</div>
+                        <input type="file" name="model" id="modelfile" hidden="hidden">
+                        <button id="model" type="button">
+                            <i class="fa fa-upload" aria-hidden="true"></i>
+                            click to upload models
+                        </button>
+                        <div class="note">upload files one by one*<br>You can upload one model*</div>
+                    </div>
+                    <div>
+                        <div class="dragoff" id="screenshot">drag and drop screenshots here</div>
+                        <input type="file" name="imageup" id="imagefile" hidden="hidden">
+                        <button id="photos" type="button">
+                            <i class="fa fa-picture-o" aria-hidden="true"></i>
+                            <div>click to upload photos</div>
+                        </button>
+                        <div class="note">upload files one by one*<br>You can upload three photos*<br>photos can be of
+                            500x500 to 1000x1000*<br>Photos must be relevant to your upload</div>
+                    </div>
+                </div>
+            </div>
+            <div id="details">
+                <div id="detailtitle">Enter File details and description</div>
+                <input id="filetitle" name="title" placeholder="Enter file title"></input>
+                <textarea id="description" name="description" cols="40" rows="5"
+                    placeholder="Enter description"></textarea>
+                <div id="box">
+
+                    <select id="type" name="option">
+
+                        <option>Ornaments</option>
+                        <option>Game asset</option>
+                        <option>Object model</option>
+
+                    </select>
+                    <i class="fa fa-arrow-down" id="downarrow" aria-hidden="true"></i>
+                </div>
+                <div id="photoholder">
+                    <!-- <div id="screen"><i class="fa fa-file-image-o" aria-hidden="true"></i></div>
+                <div id="screen"><i class="fa fa-file-image-o" aria-hidden="true"></i></div>
+                <div id="screen"><i class="fa fa-file-image-o" aria-hidden="true"></i></div> -->
+                </div>
+                <div id="finalbuttons">
+                    <button id="finalupload" type="submit">
+                        Upload
+                    </button>
+                    <button id="cancel" type="button" onclick="window.location.href='/home'">
+                        Cancel and go Home
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+    <script src="../func/upload.js"></script>
+</body>
+
+</html>

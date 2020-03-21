@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="../css/home.css">
+    <script src="https://kit.fontawesome.com/e48c27703a.js"></script>
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+    <title>Search results for "<%=search%>"</title>
+</head>
+
+<body>
+    <!-- <script src="../js/handlebars-v4.2.0.js"></script> -->
+    <!-- <script type="text/x-handlebars-template"></script> -->
+
+    <div id="elementholder">
+        <% for(var i=rowssval.length-1;i>=0;i--){%>
+        <div id="elements">
+            <div id="avatarheader">
+                <div id="avatar"></div>
+                <div id="details">
+                    <div id="timename"> <%=rowssval[i].username%></div>
+                    <div id="time">
+                        <%if(60>Math.floor((Date.now()-rowssval[i].timeval)/(1000*60))){%>
+                        <%=Math.floor((Date.now()-rowssval[i].timeval)/(1000*60))+" minutes ago"%>
+                        <%}if(24>Math.floor((Date.now()-rowssval[i].timeval)/(1000*60*60))&&Math.floor((Date.now()-rowssval[i].timeval)/(1000*60*60))!=0){%>
+                        <%=Math.floor((Date.now()-rowssval[i].timeval)/(1000*60*60))+" hours ago"%>
+                        <%}if(30>Math.floor((Date.now()-rowssval[i].timeval)/(1000*60*60*24))&&Math.floor((Date.now()-rowssval[i].timeval)/(1000*60*60*24))!=0){%>
+                        <%=Math.floor((Date.now()-rowssval[i].timeval)/(1000*60*60*24))+" days ago"%>
+                        <%}%>
+                    </div>
+                </div>
+                
+            </div>
+            <div id="detailsholder">
+                <div id="title"><%=rowssval[i].title%></div>
+                    <div id="description"><%=rowssval[i].description%></div>
+                </div>
+                <img id="pictures" src="../uploads/<%=rowssval[i].image1%>">
+                <div id="buttonshare"></div>
+            </div>
+            <%}%>
+                </div>
+
+                <div id="searchbox">
+                    <img src="../assets/logo.svg" id="logo">
+                    <div id="searchholder"></img><input id="search" type="text"></input><button id="searchbutton" onclick="search();"><i
+                                class="fa fa-search" aria-hidden="true"></i></button></div>
+                    <button id="settings"><i class="fa fa-cog" aria-hidden="true"></i></button>
+                </div>
+                <div id="profile">
+                    <div id="cardholder">
+                        <div id="profileavatar"></div>
+                        <div id="profilename"><%=nameval%>
+        </div>
+    </div>
+    <div id="buttonholder"><button id="account" onclick="window.location.href='/home'"><i class=" fa fa-user"
+                aria-hidden="true"></i>
+            <div id="fontprofile"> Home</div>
+        </button>
+        <button id="logout" onclick="window.location.href='/logout'"><i class="fa fa-sign-out" aria-hidden="true"></i>
+            <div id="fontlogout">Logout</div>
+        </button></div>
+    <button id="upload" onclick="window.location.href='/upload'"><i class="fa fa-upload" aria-hidden="true"></i>
+        <div id="fontupload">Upload</div>
+    </button>
+    </div>
+    <script src="../func/home.js"></script>
+</body>
+
+</html>
